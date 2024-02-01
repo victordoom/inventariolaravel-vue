@@ -31,20 +31,19 @@
 
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { computed } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
+import { computed } from 'vue';
 
 const props = defineProps({
     status: String,
 });
 
-const form = useForm();
+const form = useForm({});
 
 const submit = () => {
     form.post(route('verification.send'));
 };
-
 const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
 </script>
